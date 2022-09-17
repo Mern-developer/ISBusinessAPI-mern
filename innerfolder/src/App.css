@@ -1,0 +1,11 @@
+.showHand{
+    cursor: pointer; }
+
+
+.delete-icon{
+    visibility: hidden;
+    display: inline-block;
+}
+.delete-row:hover .delete-icon{
+   visibility: visible;
+}
