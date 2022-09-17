@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Params, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import finhub from "../apis/finhub";
 import { ChartDetail } from "../components/ChartDetail";
 import { StockData } from "../components/StcockData";

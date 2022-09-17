@@ -37,8 +37,7 @@ export const Stocklist = () => {
                 // console.log("mount")
             } 
         }catch(err){
-            
-            if (err.message == "Request failed with status code 403")
+            if (err.message === "Request failed with status code 403")
             {
                console.log(err)
                 navigate('/error')
@@ -50,7 +49,7 @@ export const Stocklist = () => {
     }
 fetchData();
 return ()=>(isMounted = false)
-},[watchList] )  
+},[watchList])  
     
     const handleStocldetail=(symbol)=>{
         navigate(`/stock-detail/${symbol}`)

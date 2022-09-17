@@ -4,8 +4,6 @@ import { Header } from './frontend/pages/Header';
 import { Footer } from './frontend/pages/Footer';
 import {BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Stockdetail } from './frontend/pages/Stockdetail';
-import { AutoComplete } from './frontend/components/AutoComplete';
-import { Stocklist } from './frontend/components/Stocklist';
 import { WatchListContextProvider } from './frontend/context/W.Lcontext';
 import { Error } from './frontend/pages/Error';
 function App() {

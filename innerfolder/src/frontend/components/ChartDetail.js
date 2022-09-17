@@ -7,25 +7,16 @@ export const ChartDetail=({chartData, symbol})=>{
         switch (dateFormat) {
             case "24":
                 return day; 
-                break;
-                
                 case "7d":
                     return week; 
-                    break;
-                    
                     case "1y":
                         return year; 
-                        break;
-                        
                         default:
                             return day;
                         }
                     } 
-
-                    
         //    const color = setTimeHandle()[setTimeHandle().length - 1].y - setTimeHandle()[0].y > 0 ? 'true' : 'false'
         //    console.log(color);         
-
      const options= {
         // colors: [color],
         title:{
@@ -62,17 +53,13 @@ export const ChartDetail=({chartData, symbol})=>{
         switch (dateFormat) {
             case btn:
                 return "btn btn-primary m-1"
-                break;
             default:
                 return "btn btn-outline-primary m-1";
         }
     }
-    
-   
-   
    return(
         <div>
-           <div> <a href="/" className='btn btn-primary '>Back</a></div>
+           <div> <a href="/" className='btn btn-primary'>Back</a></div>
         <div className='mt-5 p-3 shadow-sm bg-light mx-auto'>
             <Chart options={options} series={series} type="area" width="100%"/>
         <div>
