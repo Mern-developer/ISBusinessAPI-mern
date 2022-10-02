@@ -39,7 +39,7 @@ export const StockData=({symbol})=>{
 
         </div>
         <div className="col-md-4">
-                        <div> <span className="fw-bold">Logo:</span> &nbsp; <img src={sprofile.logo} alt="Image" width="25px" /> </div>
+                        <div> <span className="fw-bold">Logo:</span> &nbsp; <img src={sprofile.logo} alt="" width="25px" /> </div>
                         <div> <span className="fw-bold">M.CAP:</span>&nbsp;{sprofile.marketCapitalization}</div>
                         <div> <span className="fw-bold">URL:</span>&nbsp;<a href={sprofile.weburl} target="_blanck">{sprofile.weburl}</a></div>
 

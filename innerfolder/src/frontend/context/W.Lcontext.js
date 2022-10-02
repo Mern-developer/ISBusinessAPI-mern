@@ -1,5 +1,4 @@
 import { createContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 export const WatchListContext = createContext();
 export const WatchListContextProvider = (props)=>{
         
@@ -7,7 +6,12 @@ export const WatchListContextProvider = (props)=>{
         useState(localStorage.getItem("watchlist") !== null ? JSON.parse(localStorage.getItem("watchlist")) : ["GOOGL", "MSFT", "AMZN"] )
         
         useEffect(()=>{
-         localStorage.setItem('watchlist', JSON.stringify(watchList))   
+            // console.log(watchList)
+            //     if(watchList[watchList.length -1] ===  '^IXIC'){
+            //          watchList.pop()
+            //        } 
+            // console.log(watchList)
+            localStorage.setItem('watchlist', JSON.stringify(watchList))   
         },[watchList])
       
         const removeLocalItem =()=>{
