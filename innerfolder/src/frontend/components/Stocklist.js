@@ -32,6 +32,14 @@ export const Stocklist = () => {
                 } 
             });  
             console.log(data);
+                function extract(){
+                    const subsError = data.map(se=> se.params);
+                     let result = subsError[subsError.length-1] === '^IXIC';
+                      if(result == true){
+                          window.location.replace('/error')
+                      }
+                }
+            extract();
             if(isMounted){
                 setStock(data);
                 // console.log("mount")
