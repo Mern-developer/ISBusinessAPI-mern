@@ -35,7 +35,7 @@ export const Stocklist = () => {
                 function extract(){
                     const subsError = data.map(se=> se.params);
                      let result = subsError[subsError.length-1] === '^IXIC';
-                      if(result == true){
+                      if(result === true){
                           window.location.replace('/error')
                       }
                 }
