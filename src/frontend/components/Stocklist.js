@@ -57,7 +57,7 @@ export const Stocklist = () => {
     }
 fetchData();
 return ()=>(isMounted = false)
-},[watchList])  
+},[watchList, navigate])  
     
     const handleStocldetail=(symbol)=>{
         navigate(`/stock-detail/${symbol}`)
