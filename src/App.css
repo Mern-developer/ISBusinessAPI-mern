@@ -9,3 +9,17 @@
 .delete-row:hover .delete-icon{
    visibility: visible;
 }
+
+.fixed-table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.fixed-table th,
+.fixed-table td {
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

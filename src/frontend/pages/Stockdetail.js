@@ -58,7 +58,7 @@ const fetchData= async ()=>{
                 }
             })
         ]) 
-         console.log(responses)
+         console.log(responses,'Detail')
         setChartData({
             day: formatData(responses[0].data),
             week: formatData(responses[1].data),
@@ -66,16 +66,60 @@ const fetchData= async ()=>{
         })
 
     }catch(err){
-        console.log(err)
+        console.log(err,'fetch graph data ')
     }
 }
 fetchData()
 }, [symbol])
+
+// useEffect(() => {
+//   const fetchData = async () => {
+//     const date = new Date();
+//     const currTime = Math.floor(Date.now() / 1000);
+//     const day = date.getDay();
+
+//     let oneDay;
+//     if (day === 6) oneDay = currTime - 1 * 86400;
+//     else if (day === 0) oneDay = currTime - 2 * 86400;
+//     else oneDay = currTime - 86400;
+
+//     const week = currTime - 7 * 86400;
+//     const oneYear = currTime - 365 * 86400;
+
+//     const toTime = currTime - 4 * 3600; // market close buffer
+
+//     try {
+//       const [dayRes, weekRes, yearRes] = await Promise.all([
+//         finhub.get("/stock/candle", {
+//           params: { symbol, from: oneDay, to: toTime, resolution: 15 }
+//         }),
+//         finhub.get("/stock/candle", {
+//           params: { symbol, from: week, to: toTime, resolution: 60 }
+//         }),
+//         finhub.get("/stock/candle", {
+//           params: { symbol, from: oneYear, to: toTime, resolution: "W" }
+//         })
+//       ]);
+
+//       setChartData({
+//         day: formatData(dayRes.data),
+//         week: formatData(weekRes.data),
+//         year: formatData(yearRes.data)
+//       });
+
+//     } catch (err) {
+//       console.error("Fetch graph data error:", err);
+//     }
+//   };
+
+//   fetchData();
+// }, [symbol]);
+
     return(
    <div>
        {chartData && ( 
            <div> 
-            <ChartDetail chartData={chartData} symbol={symbol} />
+            {/* <ChartDetail chartData={chartData} symbol={symbol} /> */}
             <div className="my-5">
             <StockData  symbol={symbol} />
             </div>

@@ -2,10 +2,12 @@ import {useContext, useEffect, useState} from 'react'
 import finhub from '../apis/finhub'
 import { WatchListContext } from '../context/W.Lcontext';
 import { useNavigate } from 'react-router-dom'
+import { Spiner } from './Spinerr';
 
 export const Stocklist = () => {
     const { watchList, deleteStock } =useContext(WatchListContext)
     const [stock, setStock]=useState([]);
+    const [loading, setLoading]=useState(true);
     const navigate = useNavigate();
     const changeColor=(color)=>{
         return color > 0 ? "success" : "danger"
@@ -31,7 +33,8 @@ export const Stocklist = () => {
                     status: Resdata.headers.status       
                 } 
             });  
-            console.log(data);
+            // console.log(data,"Farhan");
+            if(response) setLoading(false)
                 function extract(){
                     const subsError = data.map(se=> se.params);
                      let result = subsError[subsError.length-1] === '^IXIC';
@@ -66,26 +69,33 @@ return ()=>(isMounted = false)
 <div>
     <h4 className="text-center">List of Stocks</h4>
     <div className='table-responsive'>
-                <table className='table table-striped hover mt-5 '>
+                <table className='table table-striped hover mt-5 fixed-table'>
 <thead style={{color: "rgb(79,89,102)"}}>
     <tr>
         <th scope="col">No.</th>
-        <th scope="col">Name</th>
-        <th scope="col">Last</th>
-        <th scope="col">Chg</th>
-        <th scope="col">Chg%</th>
-        <th scope="col">High</th>
-        <th scope="col">Low</th>
-        <th scope="col">Open</th>
-        <th scope="col">Pclose</th>
+        <th scope="col" title='Name'>Name</th>
+        <th scope="col" title='Last'>Last</th>
+        <th scope="col" title='Chg'>Chg</th>
+        <th scope="col" title='Chg%'>Chg%</th>
+        <th scope="col" title='High'>High</th>
+        <th scope="col" title='Low'>Low</th>
+        <th scope="col" title='Open'>Open</th>
+        <th scope="col" title='Pclose'>Pclose</th>
     </tr>
 </thead>
 <tbody>
-    {stock.map((st, i)=>{
+    {loading ? 
+     <tr>
+        <td colSpan="12" className='text-center py-5'>
+        <Spiner /> 
+        </td>
+     </tr>
+     
+     : stock.map((st, i)=>{
         return(
             <tr onClick={() => handleStocldetail(st.params)} className='table-row delete-row showHand' key={st.params}>
               <td>{i+1}</td>  
-              <th>{st.params}</th>  
+              <td>{st.params}</td>  
               <td>{st.data.c.toFixed(2)}</td>  
                 <td className={`text-${changeColor(st.data.d)}`}>{st.data.d.toFixed(2)}
                     {st.data.d.toFixed(2) > 0 ? (<i className="fa-solid fa-caret-up"></i>) : (<i className="fa-solid fa-caret-down"></i>)}</td>  
@@ -95,7 +105,7 @@ return ()=>(isMounted = false)
                 <td>{st.data.l.toFixed(2)}</td>  
                 <td>{st.data.o.toFixed(2)}</td>  
                 <td>{st.data.pc.toFixed(2)}
-                    <button className="btn btn-danget ml-3 display-inline-block delete-icon btn-sm" onClick={(e)=>
+                    <button className="btn btn-danget ml-3 display-inline-block delete-icon btn-sm border" onClick={(e)=>
                     {e.stopPropagation()
                             deleteStock(st.params)}}>Remove</button></td>  
             </tr>

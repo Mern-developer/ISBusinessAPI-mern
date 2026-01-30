@@ -29,18 +29,18 @@ export const StockData=({symbol})=>{
     <div className="row border bg-white rounded shadow-sm p-4 mt-5">
         <div className="col-md-4">
             <div> <span className="fw-bold">Name:</span> &nbsp; {sprofile.name}</div>
-                        <div> <span className="fw-bold">Country:</span>&nbsp; {sprofile.country}</div>
+                        <div className="my-sm-3"> <span className="fw-bold">Country:</span>&nbsp; {sprofile.country}</div>
                         <div> <span className="fw-bold">Currency:</span> &nbsp; {sprofile.currency}</div>
         </div>
         <div className="col-md-4">
                         <div> <span className="fw-bold">Ticker:</span> &nbsp; {sprofile.ticker}</div>
-                        <div> <span className="fw-bold">Exchange:</span> &nbsp; {sprofile.exchange}</div>
+                        <div className="my-sm-3"> <span className="fw-bold">Exchange:</span> &nbsp; {sprofile.exchange}</div>
                         <div> <span className="fw-bold">IPO:</span> &nbsp; {sprofile.ipo}</div>
 
         </div>
         <div className="col-md-4">
                         <div> <span className="fw-bold">Logo:</span> &nbsp; <img src={sprofile.logo} alt="" width="25px" /> </div>
-                        <div> <span className="fw-bold">M.CAP:</span>&nbsp;{sprofile.marketCapitalization}</div>
+                        <div className="my-sm-3"> <span className="fw-bold">M.CAP:</span>&nbsp;{sprofile.marketCapitalization}</div>
                         <div> <span className="fw-bold">URL:</span>&nbsp;<a href={sprofile.weburl} target="_blanck">{sprofile.weburl}</a></div>
 
         </div>

@@ -49,7 +49,7 @@ return ()=>( isMounted = false );
         <input onChange={(e)=> setSearch(e.target.value)} 
         value={search} autoComplete="off" style={{background: "rgba(145,158, 171, 0.04)"}} 
                     id="floatingInput" type="text" className="form-control shadow"></input>
-        <label for="floatingInput">Search</label>
+        <label htmlFor="floatingInput">Search</label>
          {renderDropdown()}           
     </div>
 

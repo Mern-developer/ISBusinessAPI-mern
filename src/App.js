@@ -6,6 +6,8 @@ import {BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Stockdetail } from './frontend/pages/Stockdetail';
 import { WatchListContextProvider } from './frontend/context/W.Lcontext';
 import { Error } from './frontend/pages/Error';
+import { News } from './frontend/pages/News';
+
 function App() {
   return (
     <WatchListContextProvider>
@@ -19,6 +21,7 @@ function App() {
     <Routes>
    <Route path='/' element={<Stockoverview />}/>
    <Route path='/stock-detail/:symbol' element={<Stockdetail />}/>
+   <Route path='/news/:category' element={<News />}/>
    <Route path='/error' element={<Error />}/>
    
 
