@@ -1,16 +1,15 @@
-import { useLocation, useNavigate } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 
 export const Header = () => {
     const navigate =useNavigate()
     const {pathname} = useLocation()
-    console.log(pathname,"pathName")
     
     return (
         <div>
             <nav className="navbar navbar-expand-lg bg-light">
                 <div className="container-fluid">
 
-                    <a className="navbar-brand fs-1 " href="/">IS.Business</a>
+                    <Link className="navbar-brand fs-1 " href="/">IS.Business</Link>
                     
                         <div className="container-fluid">
                             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,13 +18,13 @@ export const Header = () => {
                             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                                     <li className="nav-item">
-                                        <a className="nav-link active" aria-current="page" href="/">Home</a>
+                                        <Link className="nav-link active" aria-current="page" href="/">Home</Link>
                                     </li>
                                     
                                     <li className="nav-item dropdown">
-                                        <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <Link className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             News
-                                        </a>
+                                        </Link>
                                         <ul className="dropdown-menu">
                                             <li role="button" className={`cursor-pointer dropdown-item ${pathname === "/news/Forex" && "text-bg-primary"   }`} 
                                             onClick={()=>{navigate(`/news/${'Forex'}`)}}>Forex</li>

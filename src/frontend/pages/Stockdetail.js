@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 import finhub from "../apis/finhub";
-import { ChartDetail } from "../components/ChartDetail";
+// import { ChartDetail } from "../components/ChartDetail";
 import { StockData } from "../components/StcockData";
 
 const formatData=(data)=>{
@@ -71,49 +71,6 @@ const fetchData= async ()=>{
 }
 fetchData()
 }, [symbol])
-
-// useEffect(() => {
-//   const fetchData = async () => {
-//     const date = new Date();
-//     const currTime = Math.floor(Date.now() / 1000);
-//     const day = date.getDay();
-
-//     let oneDay;
-//     if (day === 6) oneDay = currTime - 1 * 86400;
-//     else if (day === 0) oneDay = currTime - 2 * 86400;
-//     else oneDay = currTime - 86400;
-
-//     const week = currTime - 7 * 86400;
-//     const oneYear = currTime - 365 * 86400;
-
-//     const toTime = currTime - 4 * 3600; // market close buffer
-
-//     try {
-//       const [dayRes, weekRes, yearRes] = await Promise.all([
-//         finhub.get("/stock/candle", {
-//           params: { symbol, from: oneDay, to: toTime, resolution: 15 }
-//         }),
-//         finhub.get("/stock/candle", {
-//           params: { symbol, from: week, to: toTime, resolution: 60 }
-//         }),
-//         finhub.get("/stock/candle", {
-//           params: { symbol, from: oneYear, to: toTime, resolution: "W" }
-//         })
-//       ]);
-
-//       setChartData({
-//         day: formatData(dayRes.data),
-//         week: formatData(weekRes.data),
-//         year: formatData(yearRes.data)
-//       });
-
-//     } catch (err) {
-//       console.error("Fetch graph data error:", err);
-//     }
-//   };
-
-//   fetchData();
-// }, [symbol]);
 
     return(
    <div>

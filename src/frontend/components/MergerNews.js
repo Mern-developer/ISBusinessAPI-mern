@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import finhub from "../apis/finhub"
+import { Link } from "react-router-dom";
 
 export const MergerNews = ({ newsCategory }) => {
    const [merger,setMerger]=useState([]);
@@ -42,7 +43,7 @@ useEffect(()=>{
                                     <div className="card-body">
                                         <h5 className="card-title">{item?.headline}</h5>
                                         <p className="card-text">{item?.summary}</p>
-                                        <a href={item?.url} className="btn btn-primary" target="_blank">Visit</a>
+                                        <Link href={item?.url} className="btn btn-primary" rel="noreferrer" target="_blank">Visit</Link>
                                     </div>
                                 </div>
                             </div>
