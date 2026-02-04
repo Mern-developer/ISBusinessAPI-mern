@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { localDateTimeZone, textTurncate } from "../utils/Utils"
 import { Pagination } from "./Pagination"
 import finhub from "../apis/finhub";
+import { Link } from "react-router-dom";
 
 export const General=({newsCategory})=>{
     const [merger, setMerger] = useState([]);
@@ -59,7 +60,7 @@ export const General=({newsCategory})=>{
                                             <span className="placeholder col-6"></span>
                                             <span className="placeholder col-8"></span>
                                         </p>
-                                        <a class="btn btn-primary disabled placeholder col-6" aria-disabled="true"></a>
+                                        <Link to="#" class="btn btn-primary disabled placeholder col-6" aria-disabled="true"></Link>
                                     </div>
                                 </div>
                                 </div>
@@ -82,7 +83,7 @@ export const General=({newsCategory})=>{
                                             <p className="card-title fw-bold">Publish <span style={{ fontSize: '12px', color: '#808080' }}>{localDateTimeZone(item?.datetime)}</span></p>
 
                                             {/* <Link to={item?.url} className="btn btn-primary" target="_blank">Visit</Link> */}
-                                            <a href={item?.url} className="btn btn-primary" target="_blank">Visit</a>
+                                            <a href={item?.url} rel="noreferrer" className="btn btn-primary" target="_blank">Visit</a>
                                         </div>
                                     </div>
                                 </div>
