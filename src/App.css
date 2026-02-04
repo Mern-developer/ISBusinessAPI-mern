@@ -23,3 +23,10 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.min-h-200 {
+  min-height: 600px;
+}
+.text-justify{
+  text-align: justify;
+}
+

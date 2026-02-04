@@ -1,44 +1,42 @@
-import { useEffect, useState } from "react"
-import finhub from "../apis/finhub"
-import { Link } from "react-router-dom";
-import { localDateTimeZone, textTurncate } from "../utils/Utils";
-import { Spiner } from "../components/Spinerr"
-import { Pagination } from "./Pagination";
-export const MergerNews = ({ newsCategory }) => {
+import { useEffect, useState } from "react";
+import { localDateTimeZone, textTurncate } from "../utils/Utils"
+import { Pagination } from "./Pagination"
+import finhub from "../apis/finhub";
+
+export const General=({newsCategory})=>{
     const [merger, setMerger] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [currentPage,setCurrentPage]=useState(1)
+        const [loading, setLoading] = useState(true);
+        const [currentPage, setcurrentPage] = useState(1);
+    
+        useEffect(() => {
+            const fetchData = async () => {
+                    setLoading(true);
+                try {
+                    const response = await finhub.get('/news', {
+                        params: {
+                            category: newsCategory?.toLowerCase()
+                        }
+                    })
+                    setMerger(response?.data)
 
-    useEffect(() => {
-        const fetchData = async () => {
-            setLoading(true);
-            try {
-                const response = await finhub.get('/news', {
-                    params: {
-                        category: newsCategory?.toLowerCase()
-                    }
-                })
-                if (response) 
-                setMerger(response)
-            } catch (error) {
-                console.log("Error:", error)
-            }finally{
-                setLoading(false);
+                } catch (error) {
+                    console.log("Error:", error)
+                }finally{
+                    setLoading(false);
+                }
             }
-        }
-        fetchData()
-    }, [newsCategory])
-
-
-
-   const itemperPage = 12;
-   const pageCount = Math.ceil(merger?.data?.length / itemperPage);
-   const page = Array.from({length: pageCount},(_,i)=>i+1);
-   const start = (currentPage - 1) * itemperPage;
-   const end = start + itemperPage;
-   const currentItems = merger?.data?.slice(start, end);
-    return (
-        <div>
+            fetchData()
+        }, [newsCategory])
+    
+   const itemsPerPage = 12;
+   const pageCount = Math.ceil(merger?.length / itemsPerPage);
+   const page = Array.from({length: pageCount},(_,i)=> i+1);
+   const start = (currentPage - 1) *itemsPerPage;
+   const end = start + itemsPerPage;
+   const itemsToRender = merger?.slice(start, end);
+    
+    return(
+<div>
             <h1 className="text-center my-2">{newsCategory} News</h1>
             <div className="container h-100 mt-4">
                 {loading ? (
@@ -71,7 +69,7 @@ export const MergerNews = ({ newsCategory }) => {
 
                 </div>) :
                     <div className="row g-4">
-                        {currentItems?.map((item, id) => {
+                        {itemsToRender.map((item, id) => {
                             return (
                                 <div key={id} className="col-sm-12 col-md-6 col-lg-4 col-xl-3">
                                     <div className="card h-100" >
@@ -94,13 +92,13 @@ export const MergerNews = ({ newsCategory }) => {
             </div>
             <div className="mt-4">
                 <Pagination 
-                currentPage={currentPage}
-                setCurrentPage={setCurrentPage}
+                setCurrentPage={setcurrentPage}
                 pageCount={pageCount}
+               currentPage={currentPage}
                 page={page}
-                    
                 />        
                 
             </div>
-        </div>)
+        </div>
+    )
 }

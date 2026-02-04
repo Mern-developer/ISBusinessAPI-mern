@@ -4,3 +4,9 @@ export const localDateTimeZone=(time)=>{
   const onlyDate = dateTime?.split(',');
   return onlyDate[0];
 }
+
+export const textTurncate=(words)=>{
+const wlength = words;
+const turncate = wlength?.length > 100 ? wlength?.slice(0,100)+"..." : wlength;
+return turncate;
+}
