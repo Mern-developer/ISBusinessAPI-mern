@@ -19,7 +19,7 @@ export const Pagination = ({pageCount,page,currentPage,setCurrentPage}) => {
                 })}  */}
 
                     <li className="page-item d-flex justify-content-center align-items-center mx-3 fs-6 fw-medium fs-sm-5">
-                     {currentPage}/{page?.length} 
+                     {page?.length === 0 ? 0 : currentPage}/{page?.length} 
                     </li> 
 
                 <li  className={`page-item  ${currentPage === 9 && "disabled"}`} 
