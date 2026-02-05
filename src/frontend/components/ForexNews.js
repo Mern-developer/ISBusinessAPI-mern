@@ -43,33 +43,34 @@ export const ForexNews = ({ newsCategory }) => {
                 <div className="container h-100 mt-4">
                     {loading ? (
                         <div className="row g-4"> {
-                            page?.map((_, id) => {
-                                return (
-                                    <div className="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-                                        <div className="card" key={id} aria-hidden="true">
-                                            <div style={{ height: '180px', background: '#808080' }}>
-                                                {/* <img src="..." className="card-img-top" alt="..." /> */}
-                                            </div>
-                                            <div className="card-body">
-                                                <h5 className="card-title placeholder-glow">
-                                                    <span className="placeholder col-6"></span>
-                                                </h5>
-                                                <p className="card-text placeholder-glow">
-                                                    <span className="placeholder col-7"></span>
-                                                    <span className="placeholder col-4"></span>
-                                                    <span className="placeholder col-4"></span>
-                                                    <span className="placeholder col-6"></span>
-                                                    <span className="placeholder col-8"></span>
-                                                </p>
-                                                <Link to="#" class="btn btn-primary disabled placeholder col-6" aria-disabled="true"></Link>
-                                            </div>
-                                        </div>
-                                    </div>
-                                )
-                            })
-                        }
+                        [1,2,3,4,5,6,7,8,9].map((_, id) => {
+                            return (
+                                <div className="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                                <div className="card" key={id} aria-hidden="true">
+                                    <div className="placeholder-glow" style={{ height: '180px',background: '#808080' }}>
+                                            <span className="placeholder col-12 h-100"></span>
 
-                        </div>) :
+                                    </div>
+                                    <div className="card-body">
+                                        <h5 className="card-title placeholder-glow">
+                                            <span className="placeholder col-6"></span>
+                                        </h5>
+                                        <p className="card-text placeholder-glow">
+                                            <span className="placeholder col-7"></span>
+                                            <span className="placeholder col-4"></span>
+                                            <span className="placeholder col-4"></span>
+                                            <span className="placeholder col-6"></span>
+                                            <span className="placeholder col-8"></span>
+                                        </p>
+                                        <Link to="#" class="btn btn-primary disabled placeholder col-6" aria-disabled="true"></Link>
+                                    </div>
+                                </div>
+                                </div>
+                            )
+                        })
+                    }
+
+                </div>) :
                         <div className="row g-4">
                             {itemsTorender?.map((item, id) => {
                                 return (
